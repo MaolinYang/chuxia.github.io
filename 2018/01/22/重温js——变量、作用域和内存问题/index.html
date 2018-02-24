@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="新年计划就是：一方面专业知识的沉淀，二是其他方面的继续学习。 1. 变量 js变量是松散类型的，也就是说可以保存任何类型的数据。 12var message; //定义一个变量，该变量可以保存任何值，未经初始化的变量会保存为undefined 12345var message = &amp;apos;hi&amp;apos;; //这样初始化的过程就是一个简单的赋值的过程，修改变量值的同时修改变量的类型。mess">
+<meta name="description" content="基本类型与引用类型 基本类型：简单的数据段 引用类型：可能由多个值构成的对象，是保存在内存中的对象。  对于引用类型的值，我们可以为其添加属性和方法，也可以改变和删除其属性和方法。  12345678910var person = new Object();person.name = &amp;apos;maolin.yang&amp;apos;;console.log(person.name); //maol">
 <meta property="og:type" content="article">
-<meta property="og:title" content="重温js——基本概念">
-<meta property="og:url" content="https://jasminey.github.io/maolin.yang/2017/11/08/重温js/index.html">
+<meta property="og:title" content="重温js——变量、作用域和内存问题">
+<meta property="og:url" content="https://jasminey.github.io/maolin.yang/2018/01/22/重温js——变量、作用域和内存问题/index.html">
 <meta property="og:site_name" content="maolin.yang">
-<meta property="og:description" content="新年计划就是：一方面专业知识的沉淀，二是其他方面的继续学习。 1. 变量 js变量是松散类型的，也就是说可以保存任何类型的数据。 12var message; //定义一个变量，该变量可以保存任何值，未经初始化的变量会保存为undefined 12345var message = &amp;apos;hi&amp;apos;; //这样初始化的过程就是一个简单的赋值的过程，修改变量值的同时修改变量的类型。mess">
+<meta property="og:description" content="基本类型与引用类型 基本类型：简单的数据段 引用类型：可能由多个值构成的对象，是保存在内存中的对象。  对于引用类型的值，我们可以为其添加属性和方法，也可以改变和删除其属性和方法。  12345678910var person = new Object();person.name = &amp;apos;maolin.yang&amp;apos;;console.log(person.name); //maol">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-09T08:26:49.000Z">
+<meta property="og:updated_time" content="2018-01-22T08:07:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="重温js——基本概念">
-<meta name="twitter:description" content="新年计划就是：一方面专业知识的沉淀，二是其他方面的继续学习。 1. 变量 js变量是松散类型的，也就是说可以保存任何类型的数据。 12var message; //定义一个变量，该变量可以保存任何值，未经初始化的变量会保存为undefined 12345var message = &amp;apos;hi&amp;apos;; //这样初始化的过程就是一个简单的赋值的过程，修改变量值的同时修改变量的类型。mess">
+<meta name="twitter:title" content="重温js——变量、作用域和内存问题">
+<meta name="twitter:description" content="基本类型与引用类型 基本类型：简单的数据段 引用类型：可能由多个值构成的对象，是保存在内存中的对象。  对于引用类型的值，我们可以为其添加属性和方法，也可以改变和删除其属性和方法。  12345678910var person = new Object();person.name = &amp;apos;maolin.yang&amp;apos;;console.log(person.name); //maol">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://jasminey.github.io/maolin.yang/2017/11/08/重温js/"/>
+  <link rel="canonical" href="https://jasminey.github.io/maolin.yang/2018/01/22/重温js——变量、作用域和内存问题/"/>
 
 
 
 
 
-  <title>重温js——基本概念 | maolin.yang</title>
+  <title>重温js——变量、作用域和内存问题 | maolin.yang</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jasminey.github.io/maolin.yang/maolin.yang/2017/11/08/重温js/">
+    <link itemprop="mainEntityOfPage" href="https://jasminey.github.io/maolin.yang/maolin.yang/2018/01/22/重温js——变量、作用域和内存问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maolin.yang">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">重温js——基本概念</h1>
+          <h1 class="post-title" itemprop="name headline">重温js——变量、作用域和内存问题</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T11:09:37+08:00">
-                2017-11-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T10:06:49+08:00">
+                2018-01-22
               </time>
             
 
@@ -329,16 +329,28 @@
       
 
       
-        <p>新年计划就是：一方面专业知识的沉淀，二是其他方面的继续学习。</p>
-<h4 id="1-变量"><a href="#1-变量" class="headerlink" title="1. 变量"></a>1. 变量</h4><p> js变量是松散类型的，也就是说可以保存任何类型的数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var message; </div><div class="line">//定义一个变量，该变量可以保存任何值，未经初始化的变量会保存为undefined</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var message = &apos;hi&apos;; </div><div class="line">//这样初始化的过程就是一个简单的赋值的过程，修改变量值的同时修改变量的类型。</div><div class="line"></div><div class="line">message = 10; </div><div class="line">// 为message重新赋值，同时改变了message的数据类型。有效，但不推荐。</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function test()&#123;</div><div class="line">    var message = &apos;hi&apos;;  //局部变量，这个变量在函数退出后就会被销毁。</div><div class="line">&#125;</div><div class="line"></div><div class="line">test();</div><div class="line">alert(message)// message is not defined;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function test()&#123;</div><div class="line">    message = &apos;hi&apos;; //全局变量</div><div class="line">    //省略了var操作符，message就变成了全局变量，</div><div class="line">    //这样只要调用一次test()函数，这个变量就有了定义，就可以在函数外部的任何地方都能被访问到。</div><div class="line">&#125;</div><div class="line">test();</div><div class="line">alert(message) //hi</div></pre></td></tr></table></figure>
-<h4 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2. 数据类型"></a>2. 数据类型</h4><p>5种基本数据类型：Undefined,Null,Boolean,Number,String<br>还有一种比较复杂的数据类型：Object</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&quot;object&quot;;// 这个值是对象或者null</div><div class="line"></div><div class="line">undefined:typeof 对于未初始化或者未声明的值返回的都是undefined</div><div class="line">null: typeof(null) == &apos;undefined&apos;</div><div class="line"></div><div class="line">Number</div><div class="line">if(0.1+0.2 == 0.3)&#123;</div><div class="line">    console.log(&apos;true&apos;) //不建议这样子做，因为会有浮点数计算问题</div><div class="line">&#125;</div><div class="line"></div><div class="line">NaN:非数值，not a number</div><div class="line">NaN 和任何数值都不想等，包括NaN 本身</div><div class="line"></div><div class="line">Object的每个实例都具有以下的属性和方法：</div><div class="line">1.Constructor: 保存用于创建当前对象的函数，new Object(),构造函数就是Object()</div><div class="line">2.hasOwnProperty: 检查给定的属性在不在当前对象实例中。obj.hasOwnProperty(&apos;key&apos;)</div><div class="line">3.propertyIsEnumerable:  检查给定的属性能否使用for-in语句来枚举</div></pre></td></tr></table></figure>
-<h4 id="3-函数"><a href="#3-函数" class="headerlink" title="3.函数"></a>3.函数</h4><p>函数接收到的参数始终都是数组，而不关心数组中有哪些类型的参数。函数内可以通过arguments对象来访问这个数组，从而获取传递给函数的每一个参数。<br>arguments对象只是与数组类似，并不是Array的实例，只是能够通过arguments[n-1]来访问它的第n个元素，可以通过arguments.length来确定传递进来多少个参数。<br>arguments对象的长度是由传入的参数个数决定的</p>
-<p>js函数没有重载，java中函数有重载，可以为一个函数编写两个签名，只要接受参数的类型和数量不一样即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+        <ol>
+<li><p>基本类型与引用类型<br> 基本类型：简单的数据段<br> 引用类型：可能由多个值构成的对象，是保存在内存中的对象。</p>
+</li>
+<li><p>对于引用类型的值，我们可以为其添加属性和方法，也可以改变和删除其属性和方法。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var person = new Object();</div><div class="line">person.name = &apos;maolin.yang&apos;;</div><div class="line">console.log(person.name); //maolin.yang</div><div class="line"></div><div class="line">//但是不能给基本类型的值添加属性，尽管不会导致任何报错。</div><div class="line">var name = &apos;maolin.yang&apos;;</div><div class="line">name.age = 25;</div><div class="line">console.log(name.age) //undefined</div><div class="line"></div><div class="line">//故只能给引用类型的值动态的添加属性</div></pre></td></tr></table></figure>
+</li>
+<li><p>复制变量值</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var num1 = 5;</div><div class="line">var num2 = num1;</div><div class="line"></div><div class="line">console.log(num2) //5,num1,num2相互独立</div><div class="line"></div><div class="line">var obj1 = new Object();</div><div class="line">var obj2 = obj1;</div><div class="line">obj2.name = &apos;maolin.yang&apos;;</div><div class="line"></div><div class="line">console.log(obj1.name)//maolin.yang</div><div class="line">//obj1,obj2指向同一对象，因此改变一个变量，就会影响另一变量的值</div></pre></td></tr></table></figure>
+</li>
+<li><p>传递参数</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function setName(obj)&#123;</div><div class="line">    obj.name = &apos;maolin.yang&apos;;</div><div class="line">    obj = new Object();</div><div class="line">    obj.name = &apos;maolin&apos;;</div><div class="line">&#125;</div><div class="line">var obj=&#123;&#125;;</div><div class="line">setName(obj);</div><div class="line">obj.name;// maolin.yang</div><div class="line"></div><div class="line">//函数内部修改参数值，原始的引用仍然未改变。</div></pre></td></tr></table></figure>
+</li>
+<li><p>变量检测<br> 要检测变量是不是基本数据类型，是数值，字符串，布尔还是undefined，<code>typeof</code>是个不错的选择，但是对于对象和null，typeof都会返回oject<br> 判断是不是引用类型的实例，<code>instanceof</code>是个不错的选择</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(obj instanceof Object); //obj是Object嘛</div><div class="line">console.log(obj instanceof Array); //obj是Array嘛</div><div class="line">console.log(obj instanceof RegExp); //obj是Object嘛</div></pre></td></tr></table></figure>
+<p> 所有引用类型的值都是Object的实例，在检测引用类型值和构造函数时，instanceof始终返回true，<br> 用instanceof 检测基本数据类型值时，始终返回false，因为基本数据类型值不是对象。</p>
+</li>
+<li><p>执行环境与作用域<br> 执行环境<br> 作用域链，是为了保证对执行环境有权访问的所有变量和函数的有效访问。<br> 全局变量<br> 局域变量</p>
+</li>
+<li><p>没有块级作用域</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">if(true)&#123;</div><div class="line">    var color = &apos;red&apos;;</div><div class="line">&#125;</div><div class="line">console.log(color);// red</div><div class="line"></div><div class="line">//其他语言中，color会在if语句执行完之后将其销毁</div></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
@@ -363,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/maolin.yang/2017/10/16/知识点学习树/" rel="next" title="知识点学习树">
-                <i class="fa fa-chevron-left"></i> 知识点学习树
+              <a href="/maolin.yang/2017/12/14/外汇项目总结/" rel="next" title="forex项目总结&&年终总结.md">
+                <i class="fa fa-chevron-left"></i> forex项目总结&&年终总结.md
               </a>
             
           </div>
@@ -373,8 +385,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/maolin.yang/2017/12/14/外汇项目总结/" rel="prev" title="forex项目总结&&年终总结.md">
-                forex项目总结&&年终总结.md <i class="fa fa-chevron-right"></i>
+              <a href="/maolin.yang/2018/02/09/css/" rel="prev" title="css">
+                css <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -427,17 +439,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -499,22 +502,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-变量"><span class="nav-number">1.</span> <span class="nav-text">1. 变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-数据类型"><span class="nav-number">2.</span> <span class="nav-text">2. 数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-函数"><span class="nav-number">3.</span> <span class="nav-text">3.函数</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

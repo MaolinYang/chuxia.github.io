@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="新年计划就是：一方面专业知识的沉淀，二是其他方面的继续学习。 1. 变量 js变量是松散类型的，也就是说可以保存任何类型的数据。 12var message; //定义一个变量，该变量可以保存任何值，未经初始化的变量会保存为undefined 12345var message = &amp;apos;hi&amp;apos;; //这样初始化的过程就是一个简单的赋值的过程，修改变量值的同时修改变量的类型。mess">
+<meta name="description" content="css 布局 display属性 a. block b. none,常会联系到visibility c. inline-block d. list-item,table,flex  margin:auto margin:0 auto;实现水平居中  max-width 处理浏览器小窗口情况，所有主流浏览器，包括IE7+在内都支持  合模型 元素的边框和内边距不包括在width内， box-sizi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="重温js——基本概念">
-<meta property="og:url" content="https://jasminey.github.io/maolin.yang/2017/11/08/重温js/index.html">
+<meta property="og:title" content="css">
+<meta property="og:url" content="https://jasminey.github.io/maolin.yang/2018/02/09/css/index.html">
 <meta property="og:site_name" content="maolin.yang">
-<meta property="og:description" content="新年计划就是：一方面专业知识的沉淀，二是其他方面的继续学习。 1. 变量 js变量是松散类型的，也就是说可以保存任何类型的数据。 12var message; //定义一个变量，该变量可以保存任何值，未经初始化的变量会保存为undefined 12345var message = &amp;apos;hi&amp;apos;; //这样初始化的过程就是一个简单的赋值的过程，修改变量值的同时修改变量的类型。mess">
+<meta property="og:description" content="css 布局 display属性 a. block b. none,常会联系到visibility c. inline-block d. list-item,table,flex  margin:auto margin:0 auto;实现水平居中  max-width 处理浏览器小窗口情况，所有主流浏览器，包括IE7+在内都支持  合模型 元素的边框和内边距不包括在width内， box-sizi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-09T08:26:49.000Z">
+<meta property="og:updated_time" content="2018-02-24T06:14:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="重温js——基本概念">
-<meta name="twitter:description" content="新年计划就是：一方面专业知识的沉淀，二是其他方面的继续学习。 1. 变量 js变量是松散类型的，也就是说可以保存任何类型的数据。 12var message; //定义一个变量，该变量可以保存任何值，未经初始化的变量会保存为undefined 12345var message = &amp;apos;hi&amp;apos;; //这样初始化的过程就是一个简单的赋值的过程，修改变量值的同时修改变量的类型。mess">
+<meta name="twitter:title" content="css">
+<meta name="twitter:description" content="css 布局 display属性 a. block b. none,常会联系到visibility c. inline-block d. list-item,table,flex  margin:auto margin:0 auto;实现水平居中  max-width 处理浏览器小窗口情况，所有主流浏览器，包括IE7+在内都支持  合模型 元素的边框和内边距不包括在width内， box-sizi">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://jasminey.github.io/maolin.yang/2017/11/08/重温js/"/>
+  <link rel="canonical" href="https://jasminey.github.io/maolin.yang/2018/02/09/css/"/>
 
 
 
 
 
-  <title>重温js——基本概念 | maolin.yang</title>
+  <title>css | maolin.yang</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jasminey.github.io/maolin.yang/maolin.yang/2017/11/08/重温js/">
+    <link itemprop="mainEntityOfPage" href="https://jasminey.github.io/maolin.yang/maolin.yang/2018/02/09/css/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maolin.yang">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">重温js——基本概念</h1>
+          <h1 class="post-title" itemprop="name headline">css</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T11:09:37+08:00">
-                2017-11-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T16:27:02+08:00">
+                2018-02-09
               </time>
             
 
@@ -329,17 +329,44 @@
       
 
       
-        <p>新年计划就是：一方面专业知识的沉淀，二是其他方面的继续学习。</p>
-<h4 id="1-变量"><a href="#1-变量" class="headerlink" title="1. 变量"></a>1. 变量</h4><p> js变量是松散类型的，也就是说可以保存任何类型的数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var message; </div><div class="line">//定义一个变量，该变量可以保存任何值，未经初始化的变量会保存为undefined</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var message = &apos;hi&apos;; </div><div class="line">//这样初始化的过程就是一个简单的赋值的过程，修改变量值的同时修改变量的类型。</div><div class="line"></div><div class="line">message = 10; </div><div class="line">// 为message重新赋值，同时改变了message的数据类型。有效，但不推荐。</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function test()&#123;</div><div class="line">    var message = &apos;hi&apos;;  //局部变量，这个变量在函数退出后就会被销毁。</div><div class="line">&#125;</div><div class="line"></div><div class="line">test();</div><div class="line">alert(message)// message is not defined;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function test()&#123;</div><div class="line">    message = &apos;hi&apos;; //全局变量</div><div class="line">    //省略了var操作符，message就变成了全局变量，</div><div class="line">    //这样只要调用一次test()函数，这个变量就有了定义，就可以在函数外部的任何地方都能被访问到。</div><div class="line">&#125;</div><div class="line">test();</div><div class="line">alert(message) //hi</div></pre></td></tr></table></figure>
-<h4 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2. 数据类型"></a>2. 数据类型</h4><p>5种基本数据类型：Undefined,Null,Boolean,Number,String<br>还有一种比较复杂的数据类型：Object</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&quot;object&quot;;// 这个值是对象或者null</div><div class="line"></div><div class="line">undefined:typeof 对于未初始化或者未声明的值返回的都是undefined</div><div class="line">null: typeof(null) == &apos;undefined&apos;</div><div class="line"></div><div class="line">Number</div><div class="line">if(0.1+0.2 == 0.3)&#123;</div><div class="line">    console.log(&apos;true&apos;) //不建议这样子做，因为会有浮点数计算问题</div><div class="line">&#125;</div><div class="line"></div><div class="line">NaN:非数值，not a number</div><div class="line">NaN 和任何数值都不想等，包括NaN 本身</div><div class="line"></div><div class="line">Object的每个实例都具有以下的属性和方法：</div><div class="line">1.Constructor: 保存用于创建当前对象的函数，new Object(),构造函数就是Object()</div><div class="line">2.hasOwnProperty: 检查给定的属性在不在当前对象实例中。obj.hasOwnProperty(&apos;key&apos;)</div><div class="line">3.propertyIsEnumerable:  检查给定的属性能否使用for-in语句来枚举</div></pre></td></tr></table></figure>
-<h4 id="3-函数"><a href="#3-函数" class="headerlink" title="3.函数"></a>3.函数</h4><p>函数接收到的参数始终都是数组，而不关心数组中有哪些类型的参数。函数内可以通过arguments对象来访问这个数组，从而获取传递给函数的每一个参数。<br>arguments对象只是与数组类似，并不是Array的实例，只是能够通过arguments[n-1]来访问它的第n个元素，可以通过arguments.length来确定传递进来多少个参数。<br>arguments对象的长度是由传入的参数个数决定的</p>
-<p>js函数没有重载，java中函数有重载，可以为一个函数编写两个签名，只要接受参数的类型和数量不一样即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+        <h4 id="css-布局"><a href="#css-布局" class="headerlink" title="css 布局"></a>css 布局</h4><ol>
+<li><p>display属性<br> a. block<br> b. none,常会联系到visibility<br> c. inline-block<br> d. list-item,table,flex</p>
+</li>
+<li><p>margin:auto<br> margin:0 auto;实现水平居中</p>
+</li>
+<li><p>max-width<br> 处理浏览器小窗口情况，所有主流浏览器，包括IE7+在内都支持</p>
+</li>
+<li><p>合模型<br> 元素的边框和内边距不包括在width内，<br> box-sizing:content-box;设置之后元素的内边距和边框不会增加它的宽度，支持IE8+</p>
+<p> box-sizing:border-box;</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    * &#123;</div><div class="line">-webkit-box-sizing: border-box;</div><div class="line">    -moz-box-sizing: border-box;</div><div class="line">        box-sizing: border-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>position<br> static: 默认值，不会被特殊的定位<br> relative: 相对定位，添加top,right,bottom,left属性之后会偏离其正常位置，其他元素的位置不会受到该元素的影响发生位置改变来弥补偏离后的间隙。</p>
+<p> fixed:固定定位，相对于窗口的定位，意味着即便页面滚动，它还是会留在相同的位置。使用固定定位后，不会保留在页面中原有的位置，————脱离文档流</p>
+<p> absolute:绝对定位，相对于最近的“positioned”祖先元素，如果没有“positioned”祖先元素，那么它是相对于文档的 body 元素，并且它会随着页面滚动而移动。</p>
+</li>
+<li><p>float<br> 可用于实现文字环绕图片</p>
+</li>
+<li><p>clear<br> 被用于控制浮动<br> clear:left,清除左浮动<br> clear:right,清除右浮动<br> clear:both,清除左右浮动</p>
+</li>
+<li><p>清除浮动<br> 解决方案：<a href="https://stackoverflow.com/questions/211383/what-methods-of-clearfix-can-i-use" target="_blank" rel="external">https://stackoverflow.com/questions/211383/what-methods-of-clearfix-can-i-use</a></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">overflow:auto;</div><div class="line">zoom:1; // 支持IE6</div><div class="line"></div><div class="line">.container::after &#123;</div><div class="line">    content: &quot;&quot;;</div><div class="line">    display: block;</div><div class="line">    clear: both;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>inline-block布局<br> vertical-align属性会影响到inline-block元素</p>
+</li>
+</ol>
+<p>二、css基础</p>
+<pre><code>1. css选择器（基础选择器，复杂选择器）
+    标签选择器
+    类选择器
+    ID选择器
 
+2. html中引入css的方法
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">行内式：</div><div class="line">    &lt;p style=&quot;color:red&quot;&gt;&lt;/p&gt;</div><div class="line"></div><div class="line">内嵌式：</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;style&gt;</div><div class="line">            p&#123;font-size:14px;&#125;</div><div class="line">        &lt;/style&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line"></div><div class="line">外部引入式：</div><div class="line">    @import url(&apos;reset.css&apos;)</div><div class="line"></div><div class="line">链接式：</div><div class="line">    &lt;link href=&quot;./reset.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot;&gt;</div></pre></td></tr></table></figure>
+
+    内嵌式
+    外部引入 
+3. css继承特性，层叠特性
+</code></pre>
       
     </div>
     
@@ -363,8 +390,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/maolin.yang/2017/10/16/知识点学习树/" rel="next" title="知识点学习树">
-                <i class="fa fa-chevron-left"></i> 知识点学习树
+              <a href="/maolin.yang/2018/01/22/重温js——变量、作用域和内存问题/" rel="next" title="重温js——变量、作用域和内存问题">
+                <i class="fa fa-chevron-left"></i> 重温js——变量、作用域和内存问题
               </a>
             
           </div>
@@ -372,10 +399,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/maolin.yang/2017/12/14/外汇项目总结/" rel="prev" title="forex项目总结&&年终总结.md">
-                forex项目总结&&年终总结.md <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -509,7 +532,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-变量"><span class="nav-number">1.</span> <span class="nav-text">1. 变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-数据类型"><span class="nav-number">2.</span> <span class="nav-text">2. 数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-函数"><span class="nav-number">3.</span> <span class="nav-text">3.函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#css-布局"><span class="nav-number">1.</span> <span class="nav-text">css 布局</span></a></li></ol></div>
             
 
           </div>
