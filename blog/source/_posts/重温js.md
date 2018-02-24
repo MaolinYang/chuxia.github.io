@@ -1,5 +1,5 @@
 ---
-title: 重温js
+title: 重温js——基本概念
 date: 2017-11-08 11:09:37
 tags:
 ---
@@ -48,5 +48,32 @@ alert(message) //hi
 
 ```
 "object";// 这个值是对象或者null
+
+undefined:typeof 对于未初始化或者未声明的值返回的都是undefined
+null: typeof(null) == 'undefined'
+
+Number
+if(0.1+0.2 == 0.3){
+    console.log('true') //不建议这样子做，因为会有浮点数计算问题
+}
+
+NaN:非数值，not a number
+NaN 和任何数值都不想等，包括NaN 本身
+
+Object的每个实例都具有以下的属性和方法：
+1.Constructor: 保存用于创建当前对象的函数，new Object(),构造函数就是Object()
+2.hasOwnProperty: 检查给定的属性在不在当前对象实例中。obj.hasOwnProperty('key')
+3.propertyIsEnumerable:  检查给定的属性能否使用for-in语句来枚举
 ```
+
+#### 3.函数
+函数接收到的参数始终都是数组，而不关心数组中有哪些类型的参数。函数内可以通过arguments对象来访问这个数组，从而获取传递给函数的每一个参数。
+arguments对象只是与数组类似，并不是Array的实例，只是能够通过arguments[n-1]来访问它的第n个元素，可以通过arguments.length来确定传递进来多少个参数。
+arguments对象的长度是由传入的参数个数决定的
+
+js函数没有重载，java中函数有重载，可以为一个函数编写两个签名，只要接受参数的类型和数量不一样即可。
+``` 
+
+```
+
     
