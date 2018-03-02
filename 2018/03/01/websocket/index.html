@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="拖拖拉拉很久了，一直说要建个自己的博客，总是因为各种而耽搁，后来发现做的时候并没有那么麻烦，抽空一个小时就搭建好了。嗯，第一篇博文就叫如何用hexo+github pages 搭建自己的个人博客吧。">
+<meta name="description" content="说起websocket，还有一段过不去的梗。临近毕业那会儿出来杭州面试，面试官（我现在的leader，人超nice的）拿着手机看着网页上实时波动的数据，问我，你知道这个是怎么实现的嘛，刷接口(俗称ajax轮询)啊，写个定时器，不停地刷接口，从而拿到接口返回数据。紧接着，又问了句，你知道websocket么，我想都不带想的，缓存啊，哈哈哈，到现在还是个过不去的梗~（笑哭，捂脸） 年后刚好不忙，新项目">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo+github pages搭建个人博客">
-<meta property="og:url" content="https://jasminey.github.io/maolin.yang/2017/10/13/hexo-github pages搭建个人博客/index.html">
+<meta property="og:title" content="websocket">
+<meta property="og:url" content="https://jasminey.github.io/maolin.yang/2018/03/01/websocket/index.html">
 <meta property="og:site_name" content="maolin.yang">
-<meta property="og:description" content="拖拖拉拉很久了，一直说要建个自己的博客，总是因为各种而耽搁，后来发现做的时候并没有那么麻烦，抽空一个小时就搭建好了。嗯，第一篇博文就叫如何用hexo+github pages 搭建自己的个人博客吧。">
+<meta property="og:description" content="说起websocket，还有一段过不去的梗。临近毕业那会儿出来杭州面试，面试官（我现在的leader，人超nice的）拿着手机看着网页上实时波动的数据，问我，你知道这个是怎么实现的嘛，刷接口(俗称ajax轮询)啊，写个定时器，不停地刷接口，从而拿到接口返回数据。紧接着，又问了句，你知道websocket么，我想都不带想的，缓存啊，哈哈哈，到现在还是个过不去的梗~（笑哭，捂脸） 年后刚好不忙，新项目">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-17T06:00:30.000Z">
+<meta property="og:updated_time" content="2018-03-02T03:16:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo+github pages搭建个人博客">
-<meta name="twitter:description" content="拖拖拉拉很久了，一直说要建个自己的博客，总是因为各种而耽搁，后来发现做的时候并没有那么麻烦，抽空一个小时就搭建好了。嗯，第一篇博文就叫如何用hexo+github pages 搭建自己的个人博客吧。">
+<meta name="twitter:title" content="websocket">
+<meta name="twitter:description" content="说起websocket，还有一段过不去的梗。临近毕业那会儿出来杭州面试，面试官（我现在的leader，人超nice的）拿着手机看着网页上实时波动的数据，问我，你知道这个是怎么实现的嘛，刷接口(俗称ajax轮询)啊，写个定时器，不停地刷接口，从而拿到接口返回数据。紧接着，又问了句，你知道websocket么，我想都不带想的，缓存啊，哈哈哈，到现在还是个过不去的梗~（笑哭，捂脸） 年后刚好不忙，新项目">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://jasminey.github.io/maolin.yang/2017/10/13/hexo-github pages搭建个人博客/"/>
+  <link rel="canonical" href="https://jasminey.github.io/maolin.yang/2018/03/01/websocket/"/>
 
 
 
 
 
-  <title>hexo+github pages搭建个人博客 | maolin.yang</title>
+  <title>websocket | maolin.yang</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jasminey.github.io/maolin.yang/maolin.yang/2017/10/13/hexo-github pages搭建个人博客/">
+    <link itemprop="mainEntityOfPage" href="https://jasminey.github.io/maolin.yang/maolin.yang/2018/03/01/websocket/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maolin.yang">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo+github pages搭建个人博客</h1>
+          <h1 class="post-title" itemprop="name headline">websocket</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-13T11:54:02+08:00">
-                2017-10-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T14:24:56+08:00">
+                2018-03-01
               </time>
             
 
@@ -329,8 +329,40 @@
       
 
       
-        <p>拖拖拉拉很久了，一直说要建个自己的博客，总是因为各种而耽搁，后来发现做的时候并没有那么麻烦，抽空一个小时就搭建好了。嗯，第一篇博文就叫如何用hexo+github pages 搭建自己的个人博客吧。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">When you stop trying, you make the failure completely. Time tries all things.</div></pre></td></tr></table></figure></p>
-
+        <p>说起websocket，还有一段过不去的梗。<br>临近毕业那会儿出来杭州面试，面试官（我现在的leader，人超nice的）拿着手机看着网页上实时波动的数据，问我，你知道这个是怎么实现的嘛，刷接口(俗称ajax轮询)啊，写个定时器，不停地刷接口，从而拿到接口返回数据。紧接着，又问了句，你知道websocket么，我想都不带想的，缓存啊，哈哈哈，到现在还是个过不去的梗~（笑哭，捂脸）</p>
+<p>年后刚好不忙，新项目还在筹备阶段，刚好整理下</p>
+<p>言归正传<br>说起websocket会想到http,长连接和短链接</p>
+<ol>
+<li>websocket是什么<br> 实质上来说websocket是基于TCP的协议。</li>
+<li><p>应用场景</p>
+</li>
+<li><p>为什么不采用基于http协议的接口轮询</p>
+</li>
+<li><p>二者有什么区别和联系</p>
+</li>
+<li><p>如何创建一个websocket，以及其基本事件有哪些，什么是心跳，心跳用来解决什么问题</p>
+</li>
+<li><p>websocket在项目中遇到的问题，以及解决方案<br> h5网页通常打包在客户端，和交易相关，数据实时变化，存在一个问题是，当页面停留在当前页面的时候，手机app进程退至后台，然后websocket会断掉</p>
+<p> 针对外汇业务，整个项目只创建了一个websocket，和服务端约定不同的code来处理不同的业务逻辑</p>
+<p> 外汇项目难点：</p>
+<ol>
+<li>整个项目多处用到websocet，订阅全部行情，订阅单个行情，获取账户资金信息，下单，多终端登录数据同步等问题</li>
+<li>和客户端联调</li>
+<li>环境部署</li>
+<li>运营活动与业务逻辑</li>
+<li>webview升级缓存问题（不常见）</li>
+<li>客户端唤醒出现未登录问题</li>
+<li>本地存储代理商信息pcode和sign</li>
+<li>app休眠唤醒后socket断开连接，不会触发重连，只能杀掉进程</li>
+<li>首页轮播自动播放速度会受到socket的影响</li>
+<li>微信适配</li>
+<li>活动弹窗</li>
+</ol>
+</li>
+</ol>
+<pre><code>在过产品原型，设计定初稿的时候，就要问清楚，当前产品应用场景主要用在手机浏览器（通常不会），微信，手机app内部
+要考虑一些微信和手机app打开不同的场景，比如微信会出现双头部，功能不要放在头部等
+</code></pre>
       
     </div>
     
@@ -354,8 +386,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/maolin.yang/2017/10/12/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/maolin.yang/2018/02/09/css/" rel="next" title="css">
+                <i class="fa fa-chevron-left"></i> css
               </a>
             
           </div>
@@ -363,10 +395,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/maolin.yang/2017/10/16/知识点学习树/" rel="prev" title="知识点学习树">
-                知识点学习树 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
