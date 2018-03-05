@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="maolin.yang">
 <meta property="og:description" content="说起websocket，还有一段过不去的梗。临近毕业那会儿出来杭州面试，面试官（我现在的leader，人超nice的）拿着手机看着网页上实时波动的数据，问我，你知道这个是怎么实现的嘛，刷接口(俗称ajax轮询)啊，写个定时器，不停地刷接口，从而拿到接口返回数据。紧接着，又问了句，你知道websocket么，我想都不带想的，缓存啊，哈哈哈，到现在还是个过不去的梗~（笑哭，捂脸） 年后刚好不忙，新项目">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-02T09:16:53.000Z">
+<meta property="og:updated_time" content="2018-03-05T03:38:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="websocket">
 <meta name="twitter:description" content="说起websocket，还有一段过不去的梗。临近毕业那会儿出来杭州面试，面试官（我现在的leader，人超nice的）拿着手机看着网页上实时波动的数据，问我，你知道这个是怎么实现的嘛，刷接口(俗称ajax轮询)啊，写个定时器，不停地刷接口，从而拿到接口返回数据。紧接着，又问了句，你知道websocket么，我想都不带想的，缓存啊，哈哈哈，到现在还是个过不去的梗~（笑哭，捂脸） 年后刚好不忙，新项目">
@@ -365,6 +365,13 @@
 
 在过产品原型，设计定初稿的时候，就要问清楚，当前产品应用场景主要用在手机浏览器（通常不会），微信，手机app内部
 要考虑一些微信和手机app打开不同的场景，比如微信会出现双头部，功能不要放在头部等
+</code></pre><h4 id="7-长连接与短链接"><a href="#7-长连接与短链接" class="headerlink" title="7. 长连接与短链接"></a>7. 长连接与短链接</h4><h5 id="长连接：不需要建立新的请求"><a href="#长连接：不需要建立新的请求" class="headerlink" title="长连接：不需要建立新的请求"></a>长连接：不需要建立新的请求</h5><p>建立连接–数据传输–…保持连接…数据传输–关闭连接<br>client向server发起连接请求，server接到请求，然后双方建立连接。client与server完成一次请求之后，它们之间的连接并不会主动关闭，后续的读写操作会继续使用这个连接。</p>
+<p><code>长连接可以省去较多的tcp建立和关闭的操作，减少浪费，节约时间。</code>对于频繁请求资源的客户端适合使用长连接。在长连接的应用场景下，client端一般不会主动关闭连接，当client与server之间的连接一直不关闭，随着客户端连接越来越多，server会保持过多连接。这个时候server端需要采取一次策略，如关闭一些长时间没有请求发生的连接，这样可以避免一些恶意连接导致server端服务受损<br>缺点：client端不会主动关闭它们之间的连接，client与server之间的连接如果一直不关闭的话，会存在一个问题，随着客户端连接越来越多，server会有压力</p>
+<h5 id="短链接：需要建立新的请求，一般只会在client-server间传递一次请求操作。"><a href="#短链接：需要建立新的请求，一般只会在client-server间传递一次请求操作。" class="headerlink" title="短链接：需要建立新的请求，一般只会在client/server间传递一次请求操作。"></a>短链接：需要建立新的请求，一般只会在client/server间传递一次请求操作。</h5><pre><code>简历连接--数据传输--关闭连接...建立连接--数据传输--关闭连接
+客户端向服务器端发起连接，服务器端接受客户端连接，双方建立连接。客户端向服务器端发送消息，服务器端相应，请求完成。此时，双方任意都可以发起close操作，不过一般都是client发起close操作。
+
+优点：
+    管理起来比较简单，存在的连接都是有用的连接，不需要额外的控制手段。但如果客户请求频繁，将在 TCP的建立和关闭操作上浪费较多的时间和带宽。
 </code></pre>
       
     </div>
@@ -531,7 +538,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-websocket是什么"><span class="nav-number">1.</span> <span class="nav-text">1. websocket是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-应用场景"><span class="nav-number">2.</span> <span class="nav-text">2. 应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-为什么不采用基于http协议的ajax接口轮询模拟长连接"><span class="nav-number">3.</span> <span class="nav-text">3. 为什么不采用基于http协议的ajax接口轮询模拟长连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-二者有什么区别和联系"><span class="nav-number">4.</span> <span class="nav-text">4. 二者有什么区别和联系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-如何创建一个websocket，以及其基本事件有哪些，什么是心跳，心跳用来解决什么问题"><span class="nav-number">5.</span> <span class="nav-text">5. 如何创建一个websocket，以及其基本事件有哪些，什么是心跳，心跳用来解决什么问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-websocket在项目中遇到的问题，以及解决方案"><span class="nav-number">6.</span> <span class="nav-text">6. websocket在项目中遇到的问题，以及解决方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-websocket是什么"><span class="nav-number">1.</span> <span class="nav-text">1. websocket是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-应用场景"><span class="nav-number">2.</span> <span class="nav-text">2. 应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-为什么不采用基于http协议的ajax接口轮询模拟长连接"><span class="nav-number">3.</span> <span class="nav-text">3. 为什么不采用基于http协议的ajax接口轮询模拟长连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-二者有什么区别和联系"><span class="nav-number">4.</span> <span class="nav-text">4. 二者有什么区别和联系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-如何创建一个websocket，以及其基本事件有哪些，什么是心跳，心跳用来解决什么问题"><span class="nav-number">5.</span> <span class="nav-text">5. 如何创建一个websocket，以及其基本事件有哪些，什么是心跳，心跳用来解决什么问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-websocket在项目中遇到的问题，以及解决方案"><span class="nav-number">6.</span> <span class="nav-text">6. websocket在项目中遇到的问题，以及解决方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-长连接与短链接"><span class="nav-number">7.</span> <span class="nav-text">7. 长连接与短链接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#长连接：不需要建立新的请求"><span class="nav-number">7.1.</span> <span class="nav-text">长连接：不需要建立新的请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#短链接：需要建立新的请求，一般只会在client-server间传递一次请求操作。"><span class="nav-number">7.2.</span> <span class="nav-text">短链接：需要建立新的请求，一般只会在client/server间传递一次请求操作。</span></a></li></ol></li></ol></div>
             
 
           </div>
