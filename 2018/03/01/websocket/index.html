@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="maolin.yang">
 <meta property="og:description" content="说起websocket，还有一段过不去的梗。临近毕业那会儿出来杭州面试，面试官（我现在的leader，人超nice的）拿着手机看着网页上实时波动的数据，问我，你知道这个是怎么实现的嘛，刷接口(俗称ajax轮询)啊，写个定时器，不停地刷接口，从而拿到接口返回数据。紧接着，又问了句，你知道websocket么，我想都不带想的，缓存啊，哈哈哈，到现在还是个过不去的梗~（笑哭，捂脸） 年后刚好不忙，新项目">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-02T03:16:16.000Z">
+<meta property="og:updated_time" content="2018-03-02T09:16:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="websocket">
 <meta name="twitter:description" content="说起websocket，还有一段过不去的梗。临近毕业那会儿出来杭州面试，面试官（我现在的leader，人超nice的）拿着手机看着网页上实时波动的数据，问我，你知道这个是怎么实现的嘛，刷接口(俗称ajax轮询)啊，写个定时器，不停地刷接口，从而拿到接口返回数据。紧接着，又问了句，你知道websocket么，我想都不带想的，缓存啊，哈哈哈，到现在还是个过不去的梗~（笑哭，捂脸） 年后刚好不忙，新项目">
@@ -332,35 +332,38 @@
         <p>说起websocket，还有一段过不去的梗。<br>临近毕业那会儿出来杭州面试，面试官（我现在的leader，人超nice的）拿着手机看着网页上实时波动的数据，问我，你知道这个是怎么实现的嘛，刷接口(俗称ajax轮询)啊，写个定时器，不停地刷接口，从而拿到接口返回数据。紧接着，又问了句，你知道websocket么，我想都不带想的，缓存啊，哈哈哈，到现在还是个过不去的梗~（笑哭，捂脸）</p>
 <p>年后刚好不忙，新项目还在筹备阶段，刚好整理下</p>
 <p>言归正传<br>说起websocket会想到http,长连接和短链接</p>
-<ol>
-<li>websocket是什么<br> 实质上来说websocket是基于TCP的协议。</li>
-<li><p>应用场景</p>
-</li>
-<li><p>为什么不采用基于http协议的接口轮询</p>
-</li>
-<li><p>二者有什么区别和联系</p>
-</li>
-<li><p>如何创建一个websocket，以及其基本事件有哪些，什么是心跳，心跳用来解决什么问题</p>
-</li>
-<li><p>websocket在项目中遇到的问题，以及解决方案<br> h5网页通常打包在客户端，和交易相关，数据实时变化，存在一个问题是，当页面停留在当前页面的时候，手机app进程退至后台，然后websocket会断掉</p>
-<p> 针对外汇业务，整个项目只创建了一个websocket，和服务端约定不同的code来处理不同的业务逻辑</p>
-<p> 外汇项目难点：</p>
-<ol>
-<li>整个项目多处用到websocet，订阅全部行情，订阅单个行情，获取账户资金信息，下单，多终端登录数据同步等问题</li>
-<li>和客户端联调</li>
-<li>环境部署</li>
-<li>运营活动与业务逻辑</li>
-<li>webview升级缓存问题（不常见）</li>
-<li>客户端唤醒出现未登录问题</li>
-<li>本地存储代理商信息pcode和sign</li>
-<li>app休眠唤醒后socket断开连接，不会触发重连，只能杀掉进程</li>
-<li>首页轮播自动播放速度会受到socket的影响</li>
-<li>微信适配</li>
-<li>活动弹窗</li>
-</ol>
-</li>
-</ol>
-<pre><code>在过产品原型，设计定初稿的时候，就要问清楚，当前产品应用场景主要用在手机浏览器（通常不会），微信，手机app内部
+<h4 id="1-websocket是什么"><a href="#1-websocket是什么" class="headerlink" title="1. websocket是什么"></a>1. websocket是什么</h4><p>实质上来说websocket是基于TCP的协议。<br>http协议通讯，需要浏览器和服务器做三次握手，而websocket需要一次握手，即可实现浏览器与服务器之间的通讯，实现服务器的推送功能</p>
+<p>过程：</p>
+<blockquote>
+<p>客户端：我要建立websocket连接<br>服务器：好的，已经切换到websocket协议，websocket连接已经建立成功<br>客户端：有什么消息要及时告诉（推送）我<br>服务器：好的<br>服务器： xx<br>服务器： yy<br>服务器： zz</p>
+</blockquote>
+<p>websockt优点：<br>    只要建立一次连接，就可以连续不断的得到服务器的推送的消息，节省带宽和服务器端的压力</p>
+<h4 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2. 应用场景"></a>2. 应用场景</h4><pre><code>聊天，多终端登录，数据实时一致等，主要是依靠服务器的推送
+</code></pre><h4 id="3-为什么不采用基于http协议的ajax接口轮询模拟长连接"><a href="#3-为什么不采用基于http协议的ajax接口轮询模拟长连接" class="headerlink" title="3. 为什么不采用基于http协议的ajax接口轮询模拟长连接"></a>3. 为什么不采用基于http协议的ajax接口轮询模拟长连接</h4><p>ajax轮询：ajax轮询模拟长连接是每过一段时间间隔就会像服务器发起ajax请求，查询服务器是否有数据更新<br>过程：</p>
+<blockquote>
+<p>客户端：有没有新消息<br>服务器： 没有，第一次http结束<br>客户端： 有没有新消息<br>服务器：有，第二次http结束<br>客户端：有没有新消息<br>服务器： 没有，第三次http结束<br>客户端： 有没有新消息<br>服务器：有，第四次http结束</p>
+</blockquote>
+<p>ajax轮询缺点：<br>    每次请求都需要建立http连接，即使需要传输的数据非常少，所以这样很浪费带宽，同时这个过程是被动的是，是客户端主动发起请求，服务器不是主动推送</p>
+<p><a href="https://www.cnblogs.com/gotodsp/p/6366163.html" target="_blank" rel="external">https://www.cnblogs.com/gotodsp/p/6366163.html</a></p>
+<h4 id="4-二者有什么区别和联系"><a href="#4-二者有什么区别和联系" class="headerlink" title="4. 二者有什么区别和联系"></a>4. 二者有什么区别和联系</h4><h4 id="5-如何创建一个websocket，以及其基本事件有哪些，什么是心跳，心跳用来解决什么问题"><a href="#5-如何创建一个websocket，以及其基本事件有哪些，什么是心跳，心跳用来解决什么问题" class="headerlink" title="5. 如何创建一个websocket，以及其基本事件有哪些，什么是心跳，心跳用来解决什么问题"></a>5. 如何创建一个websocket，以及其基本事件有哪些，什么是心跳，心跳用来解决什么问题</h4><h4 id="6-websocket在项目中遇到的问题，以及解决方案"><a href="#6-websocket在项目中遇到的问题，以及解决方案" class="headerlink" title="6. websocket在项目中遇到的问题，以及解决方案"></a>6. websocket在项目中遇到的问题，以及解决方案</h4><pre><code>h5网页通常打包在客户端，和交易相关，数据实时变化，存在一个问题是，当页面停留在当前页面的时候，手机app进程退至后台，然后websocket会断掉
+
+针对外汇业务，整个项目只创建了一个websocket，和服务端约定不同的code来处理不同的业务逻辑
+
+外汇项目难点：
+1. 整个项目多处用到websocet，订阅全部行情，订阅单个行情，获取账户资金信息，下单，多终端登录数据同步等问题
+2. 和客户端联调
+3. 环境部署
+4. 运营活动与业务逻辑
+5. webview升级缓存问题（不常见）
+6. 客户端唤醒出现未登录问题
+7. 本地存储代理商信息pcode和sign
+8. app休眠唤醒后socket断开连接，不会触发重连，只能杀掉进程
+9. 首页轮播自动播放速度会受到socket的影响
+10. 微信适配
+11. 活动弹窗
+
+
+在过产品原型，设计定初稿的时候，就要问清楚，当前产品应用场景主要用在手机浏览器（通常不会），微信，手机app内部
 要考虑一些微信和手机app打开不同的场景，比如微信会出现双头部，功能不要放在头部等
 </code></pre>
       
@@ -446,8 +449,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -509,6 +521,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-websocket是什么"><span class="nav-number">1.</span> <span class="nav-text">1. websocket是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-应用场景"><span class="nav-number">2.</span> <span class="nav-text">2. 应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-为什么不采用基于http协议的ajax接口轮询模拟长连接"><span class="nav-number">3.</span> <span class="nav-text">3. 为什么不采用基于http协议的ajax接口轮询模拟长连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-二者有什么区别和联系"><span class="nav-number">4.</span> <span class="nav-text">4. 二者有什么区别和联系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-如何创建一个websocket，以及其基本事件有哪些，什么是心跳，心跳用来解决什么问题"><span class="nav-number">5.</span> <span class="nav-text">5. 如何创建一个websocket，以及其基本事件有哪些，什么是心跳，心跳用来解决什么问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-websocket在项目中遇到的问题，以及解决方案"><span class="nav-number">6.</span> <span class="nav-text">6. websocket在项目中遇到的问题，以及解决方案</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
